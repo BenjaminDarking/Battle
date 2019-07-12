@@ -18,12 +18,12 @@ end
 feature 'hit points' do
   scenario 'can display player 1 hit points' do
     sign_in_and_play
-    expect(page).to have_content "Bob vs. Dave HP POINTS: 60"
+    expect(page).to have_content "Dave HP POINTS: 60HP"
   end
 
   scenario 'can display player 2 hit points' do
     sign_in_and_play
-    expect(page).to have_content "Bob vs. Dave HP POINTS: 60: HP POINTS 60HP"
+    expect(page).to have_content "Bob HP POINTS: 60HP"
 
   end
 end
@@ -48,5 +48,19 @@ feature 'Switching turns' do
     click_button 'Attack'
     expect(page).not_to have_content "Bob's turn"
     expect(page).to have_content "Dave's turn"
+  end
+end
+
+feature 'game over' do
+
+    before do
+    sign_in_and_play
+    10.times { player_loses }
+    click_button 'Attack'
+    allow(Kernel).to receive(:rand).and_return(60)
+  end
+
+  scenario 'player reaches 0 hit point' do
+    expect(page).to have_content "Dave is a loser!"
   end
 end

@@ -4,3 +4,8 @@ def sign_in_and_play
   fill_in 'player_2', with: 'Dave'
   click_button 'Submit'
 end
+
+def player_loses
+  click_button 'Attack!'
+  click_button 'OK!'
+end
