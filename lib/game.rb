@@ -24,7 +24,7 @@ def switching_turn
   @current_turn = opponent_of(current_turn)
 end
 
-def opponent_of(cureent_turn)
+def opponent_of(current_turn)
   @players.select { |player| player != current_turn }.first
 end
 
