@@ -1,1 +1,18 @@
-<h1><center><%= @player_1 %> attacked <%= @player_2 %></h1>
+<%= @game.player_1.name %> attacked <%= @game.player_2.name %>
+
+<%= @game.player_1.name %> HB points = <%= @game.player_1.hit_points %>
+
+<%= @game.player_2.name %> HB points = <%= @game.player_2.hit_points %>
+
+<%= @game.current_turn.name %>'s turn
+
+
+
+
+
+
+
+<%#
+<h1>+<%= @game.player_1.name %> attacked <%= @game.player_2.name %></h1>
+
+  <a href="/play">OK</a> %>
